@@ -1,0 +1,29 @@
+name: Frontend CI Check # 액션 이름
+
+# 언제 실행할 것인가?
+on:
+  pull_request:
+    branches: ["main"] # main으로 향하는 PR이 열릴 때마다 실행!
+
+# 무슨 일을 할 것인가?
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # 깃허브가 빌려주는 최신 우분투 컴퓨터에서 실행
+
+    steps:
+      - name: 1. 레포지토리 코드 복사해오기 (Checkout)
+        uses: actions/checkout@v4
+
+      - name: 2. Node.js 20버전 설치하기
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 3. 패키지 설치하기 (npm ci는 빠르고 정확한 설치 명령어입니다)
+        run: npm ci
+
+      - name: 4. 문법 및 코드 스타일 검사 (Lint)
+        run: npm run lint
+
+      - name: 5. 빌드 테스트 (여기서 에러 나면 PR 합치기 버튼이 빨간색으로 막힘!)
+        run: npm run build
