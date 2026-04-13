@@ -10,7 +10,7 @@ const withPWA = withPWAInit({
 });
 
 const nextConfig: NextConfig = {
-  // 여기에 기존 설정들(images, rewrites 등) 유지
+  turbopack: {}, // Turbopack 사용 명시 (webpack 경고 억제)
 };
 
 export default withPWA(nextConfig);
