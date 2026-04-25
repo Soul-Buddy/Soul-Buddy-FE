@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(command -v magick)",
+      "Bash(command -v convert)",
+      "Bash(command -v inkscape)",
+      "Bash(command -v python)",
+      "Bash(command -v python3)",
+      "Bash(npm ls *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)"
     ]
   }
 }

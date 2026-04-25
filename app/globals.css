@@ -3,4 +3,39 @@
 
 @theme {
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+  --color-bg: #f5efe6;
+  --color-surface: #fbf6ee;
+  --color-surface-strong: #f1e8da;
+  --color-primary: #e89b7b;
+  --color-primary-strong: #d9846a;
+  --color-primary-soft: #f5d9c8;
+  --color-danger: #c56354;
+  --color-danger-soft: #f1d4ce;
+  --color-dark: #2a1f1a;
+  --color-dark-soft: #3a2d26;
+  --color-text: #2c231d;
+  --color-text-muted: #8b7e73;
+  --color-text-subtle: #b8aea3;
+  --color-border: #e5dcd0;
+  --color-border-strong: #d4c8b8;
+
+  --color-emotion-blue: #c5d4e3;
+  --color-emotion-pink: #f3d2d2;
+  --color-emotion-sage: #dde2d5;
+  --color-emotion-peach: #f5dbc6;
+  --color-emotion-coral: #f3c5b8;
+  --color-emotion-mint: #dde7d8;
+  --color-emotion-beige: #ece1cf;
+  --color-emotion-cream: #e5e4d3;
+  --color-emotion-rose: #f1d8d6;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 4px 12px rgba(0, 0, 0, 0.06);
 }

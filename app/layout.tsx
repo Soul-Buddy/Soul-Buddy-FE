@@ -40,7 +40,7 @@ export default function RootLayout({
       {/* antialiased : 텍스트를 부드럽게 보여주는 클래스 */}
       <body className="bg-neutral-300 flex justify-center min-h-screen font-sans antialiased">
         {/* PC에서 폰 화면처럼 보이도록 최대 너비 고정 */}
-        <div className="relative w-full max-w-[430px] min-h-screen bg-white shadow-2xl overflow-x-hidden flex flex-col">
+        <div className="relative w-full max-w-[430px] min-h-screen bg-[var(--color-bg)] shadow-2xl overflow-x-hidden flex flex-col">
           <Providers>
             <main className="grow">{children}</main>
           </Providers>
