@@ -9,7 +9,9 @@
       "Bash(command -v python3)",
       "Bash(npm ls *)",
       "Bash(npm install *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(cmd //c \"move \\\\\"\\(onboarding\\)\\\\\" onboarding\")",
+      "PowerShell(Rename-Item *)"
     ]
   }
 }
