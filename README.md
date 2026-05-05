@@ -36,17 +36,17 @@
 ## 📁 Folder Structure - FSD 아키텍처
 
 ```text
-my-next-app/
-├── app/                  # Next.js App Router
-│   ├── layout.tsx        # 최상위 레이아웃
-│   ├── page.tsx          # 메인 페이지
-│   └── globals.css       # 전역 스타일 및 Tailwind 설정
-├── pages/                # 페이지 컴포넌트
-├── widgets/              # 위젯 컴포넌트
-├── shared/           # 재사용 가능한 UI 컴포넌트
-├── public/               # 이미지, 아이콘 등 정적 에셋
-├── features/             # 기능별 코드
-└── entities/             # 엔티티 컴포넌트
+Soul-Buddy-FE/
+├─ app/         Next.js App Router 진입점 (라우팅·레이아웃·전역 스타일)
+├─ views/       페이지 단위 컴포넌트 (Next.js 'pages'와 충돌 회피용 명칭)
+├─ widgets/     여러 features/entities를 합성한 큰 UI 블록
+├─ features/    사용자 액션 단위 (폼·버튼·상호작용)
+├─ entities/    도메인 모델 + 모델 전용 UI
+├─ shared/      어디서든 쓰는 primitive UI·유틸·설정
+├─ auth.ts      NextAuth v5 핸들러 re-export
+├─ proxy.ts     라우트 가드 (Next.js 16: 옛 middleware.ts)
+├─ next.config.ts
+└─ package.json
 ```
 
 ## 📜 Scripts
