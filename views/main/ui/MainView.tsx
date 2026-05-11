@@ -15,9 +15,12 @@ import {
 
 export function MainView() {
   return (
-    <Screen header={<AppHeader />}>
+    // header={<AppHeader />}
+    <Screen >  
       <div className="flex flex-col gap-6">
-        <MainGreeting userName={MOCK_USER_NAME} />
+        {/* 메인 화면 상단 */}
+        <MainGreeting userName={MOCK_USER_NAME} /> 
+        {/* 최근이야기 */}
         <RecentConversationsSection conversations={MOCK_RECENT_CONVERSATIONS} />
         <MainShortcuts
           historyCount={MOCK_HISTORY_CONVERSATIONS.length}

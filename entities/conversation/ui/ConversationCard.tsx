@@ -20,6 +20,14 @@ const dotClass: Record<ConversationDotColor, string> = {
   coral: "bg-[var(--color-emotion-coral)]",
 };
 
+/**
+ * 대화 카드 컴포넌트
+ * - `variant` prop을 통해 compact와 detailed 버전을 지원
+ * - compact: 제목과 날짜만 표시, 오른쪽에 Chevron 아이콘
+ * - detailed: 제목, 날짜, 감정 상태 표시, 메뉴 버튼 노출
+ * @param param0 
+ * @returns 
+ */
 export function ConversationCard({
   conversation,
   variant = "compact",
@@ -44,6 +52,7 @@ export function ConversationCard({
                 }}
                 className="-m-2 inline-flex h-6 w-6 items-center justify-center text-[var(--color-text-muted)]"
               >
+                {/* 메뉴 버튼 */}
                 <MoreHorizontal className="h-4 w-4" />
               </span>
             )}
@@ -51,6 +60,7 @@ export function ConversationCard({
           <span className="text-[15px] font-semibold text-[var(--color-text)]">
             {conversation.title}
           </span>
+          {/* 감정 상태 */}
           {isDetailed && conversation.emotionFromLabel && conversation.emotionToLabel ? (
             <span className="text-xs text-[var(--color-text-muted)]">
               마지막 감정: {conversation.emotionFromLabel} → {conversation.emotionToLabel}
@@ -59,8 +69,9 @@ export function ConversationCard({
             <span className="text-xs text-[var(--color-text-muted)]">{conversation.dateLabel}</span>
           )}
         </div>
+        {/* Chevron 아이콘 */}
         {!isDetailed && (
-          <ChevronRight className="mt-2 h-4 w-4 shrink-0 text-[var(--color-text-subtle)]" />
+          <ChevronRight className="my-auto h-4 w-4 shrink-0 text-[var(--color-text-subtle)]" />
         )}
       </button>
     </Card>
