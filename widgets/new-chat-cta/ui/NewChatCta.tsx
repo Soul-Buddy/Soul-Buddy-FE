@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Card } from "@/shared/ui/Card";
 import { Button } from "@/shared/ui/Button";
+import { useChatSetupStore } from "@/features/chat/select-buddy";
 
 /**
  * 새로운 대화 시작을 유도하는 CTA( Call to Action ) 컴포넌트
@@ -12,6 +13,7 @@ import { Button } from "@/shared/ui/Button";
  */
 export function NewChatCta() {
   const router = useRouter();
+  const reset = useChatSetupStore((s) => s.reset); // Zustand 스토어에서 대화 설정 초기화 함수 가져오기
 
   return (
     <Card surface="dark" padding="lg" className="flex justify-between items-center">
@@ -22,7 +24,10 @@ export function NewChatCta() {
       <Button
         variant="primary"
         size="lg" 
-        onClick={() => router.push("/chat/new/buddy")} // 클릭 시 새로운 대화 생성 페이지로 이동
+        onClick={() => {
+          reset(); // 대화 설정 초기화
+          router.push("/chat/new/buddy");
+        }} // 클릭 시 새로운 대화 생성 페이지로 이동
         className="self-start text-[var(--color-background)] text-4xl w-14 h-14 "
       >
         +

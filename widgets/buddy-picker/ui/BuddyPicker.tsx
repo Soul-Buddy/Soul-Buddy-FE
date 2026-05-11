@@ -37,7 +37,7 @@ export function BuddyPicker({ selectedId, onSelect }: BuddyPickerProps) {
       </div>
 
       {selected && (
-        <Card surface="dark" padding="md" className="border border-white/10 mt-3">
+        <Card surface="dark" padding="md" className="border border-white/10 mt-">
           <p className="text-sm leading-relaxed text-white/80">
             {selected.description}
           </p>
