@@ -2,7 +2,7 @@ import type { StaticImageData } from "next/image";
 
 export type BuddyId = "poco" | "lumi";
 
-export type BuddyType = "공감형" | "성찰형";
+export type BuddyType = "캐주얼형" | "공감형";
 
 export interface Buddy {
   id: BuddyId;

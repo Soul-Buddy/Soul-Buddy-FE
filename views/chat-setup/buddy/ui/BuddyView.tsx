@@ -46,7 +46,7 @@ export function BuddyView() {
         </p>
       </section>
 
-      <div className="mt-6">
+      <div className="mt-10">
         <BuddyPicker selectedId={buddyId} onSelect={setBuddy} />
       </div>
     </Screen>

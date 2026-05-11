@@ -13,7 +13,7 @@ interface BuddyCardProps {
 }
 
 export function BuddyCard({ buddy, selected = false, tone = "light", onClick }: BuddyCardProps) {
-  const isDark = tone === "dark";
+  const isDark = tone === "dark"; // 다크 모드 여부에 따라 스타일 결정
   return (
     <button
       type="button"
@@ -23,10 +23,10 @@ export function BuddyCard({ buddy, selected = false, tone = "light", onClick }: 
         "flex w-full flex-col items-center gap-3 rounded-[var(--radius-lg)] p-4 transition-all",
         isDark
           ? selected
-            ? "bg-[var(--color-dark-soft)] ring-2 ring-white/40"
+            ? "bg-primary/15 ring-2 ring-primary"
             : "bg-[var(--color-dark-soft)]/60 hover:bg-[var(--color-dark-soft)]"
           : selected
-            ? "bg-white ring-2 ring-[var(--color-primary)]"
+            ? "bg-primary-soft ring-2 ring-primary"
             : "bg-white hover:shadow-[var(--shadow-card)]",
       )}
     >
@@ -34,8 +34,7 @@ export function BuddyCard({ buddy, selected = false, tone = "light", onClick }: 
         <Image
           src={buddy.image}
           alt={`${buddy.name} 캐릭터`}
-          width={96}
-          height={96}
+          height={110}
           className="object-contain"
         />
       </div>
