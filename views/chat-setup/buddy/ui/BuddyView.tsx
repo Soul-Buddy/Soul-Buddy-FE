@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { findBuddy } from "@/entities/buddy";
 import { useChatSetupStore } from "@/features/chat/select-buddy";
-import { AppHeader } from "@/shared/ui/AppHeader";
+import { TopBar } from "@/shared/ui/TopBar";
 import { BackButton } from "@/shared/ui/BackButton";
 import { Button } from "@/shared/ui/Button";
 import { Screen } from "@/shared/ui/Screen";
@@ -18,14 +18,11 @@ export function BuddyView() {
 
   return (
     <Screen
-      tone="dark"
-      header={
-        <AppHeader
-          statusBarTone="dark"
-          leading={<BackButton fallbackHref="/" tone="dark" />}
-        />
-      }
-      footer={
+      tone="dark" // 화면 전체를 어두운 톤으로 설정
+      header={ // 상단 바에 뒤로가기 버튼 추가, 클릭 시 메인 화면으로 이동
+        <TopBar leading={<BackButton fallbackHref="/" tone="dark" />} />
+      } 
+      footer={ // 하단에 대화 시작 버튼 추가, 선택된 버디가 없으면 비활성화, 클릭 시 감정 선택 페이지로 이동
         <Button
           variant="primary"
           size="lg"
@@ -36,6 +33,7 @@ export function BuddyView() {
           {selectedName ? `${selectedName}와 시작하기` : "친구를 골라주세요"}
         </Button>
       }
+      className="py-5"
     >
       <section className="mt-2 flex flex-col gap-2">
         <h1 className="text-[22px] leading-[1.35] font-bold text-white">

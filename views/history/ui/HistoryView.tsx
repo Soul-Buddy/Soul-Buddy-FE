@@ -1,6 +1,6 @@
 "use client";
 
-import { AppHeader } from "@/shared/ui/AppHeader";
+import { TopBar } from "@/shared/ui/TopBar";
 import { BackButton } from "@/shared/ui/BackButton";
 import { Screen } from "@/shared/ui/Screen";
 import { HistoryList } from "@/widgets/history-list";
@@ -10,7 +10,7 @@ export function HistoryView() {
   return (
     <Screen
       header={
-        <AppHeader
+        <TopBar
           leading={
             <div className="flex items-center gap-2">
               <BackButton fallbackHref="/" />

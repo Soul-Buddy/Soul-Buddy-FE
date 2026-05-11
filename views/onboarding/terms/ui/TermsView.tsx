@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import { signOut } from "next-auth/react";
-import { AppHeader } from "@/shared/ui/AppHeader";
+import { TopBar } from "@/shared/ui/TopBar";
 import { IconButton } from "@/shared/ui/IconButton";
 import { Screen } from "@/shared/ui/Screen";
 import {
@@ -18,7 +18,7 @@ export function TermsView() {
   return (
     <Screen
       header={
-        <AppHeader
+        <TopBar
           leading={
             <IconButton
               variant="plain"

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import helloIcon from "@/shared/assets/helloIcon.png";
-import { AppHeader } from "@/shared/ui/AppHeader";
+import { TopBar } from "@/shared/ui/TopBar";
 import { BackButton } from "@/shared/ui/BackButton";
 import { Button } from "@/shared/ui/Button";
 import { Screen } from "@/shared/ui/Screen";
@@ -40,7 +40,7 @@ export function ProfileView() {
 
   return (
     <Screen
-      header={<AppHeader leading={<BackButton fallbackHref="/onboarding/terms" />} />}
+      header={<TopBar leading={<BackButton fallbackHref="/onboarding/terms" />} />}
       footer={
         <div className="flex gap-3">
           <Button variant="secondary" size="lg" onClick={() => router.back()} className="min-w-24">

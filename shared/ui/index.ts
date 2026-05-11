@@ -6,5 +6,5 @@ export { Checkbox } from "./Checkbox";
 export { Tag } from "./Tag";
 export { Avatar } from "./Avatar";
 export { BackButton } from "./BackButton";
-export { AppHeader } from "./AppHeader";
+export { TopBar } from "./TopBar";
 export { Screen } from "./Screen";

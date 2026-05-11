@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useChatSetupStore } from "@/features/chat/select-buddy";
-import { AppHeader } from "@/shared/ui/AppHeader";
+import { TopBar } from "@/shared/ui/TopBar";
 import { BackButton } from "@/shared/ui/BackButton";
 import { Button } from "@/shared/ui/Button";
 import { Screen } from "@/shared/ui/Screen";
@@ -23,7 +23,7 @@ export function EmotionView() {
   return (
     <Screen
       header={
-        <AppHeader leading={<BackButton fallbackHref="/chat/new/buddy" />} />
+        <TopBar leading={<BackButton fallbackHref="/chat/new/buddy" />} />
       }
       footer={
         <div className="flex gap-3">

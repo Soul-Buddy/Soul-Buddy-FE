@@ -2,7 +2,7 @@
 
 import { Map } from "lucide-react";
 import { sortByDistance } from "@/features/center/find-nearby";
-import { AppHeader } from "@/shared/ui/AppHeader";
+import { TopBar } from "@/shared/ui/TopBar";
 import { BackButton } from "@/shared/ui/BackButton";
 import { IconButton } from "@/shared/ui/IconButton";
 import { Screen } from "@/shared/ui/Screen";
@@ -16,7 +16,7 @@ export function CentersView() {
   return (
     <Screen
       header={
-        <AppHeader
+        <TopBar
           leading={
             <div className="flex items-center gap-2">
               <BackButton fallbackHref="/" />

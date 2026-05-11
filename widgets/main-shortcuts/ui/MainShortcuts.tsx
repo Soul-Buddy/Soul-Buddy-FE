@@ -9,11 +9,18 @@ interface MainShortcutsProps {
   centerCount: number;
 }
 
+/**
+ * 메인 단축키 컴포넌트
+ * - 대화 기록과 상담 센터에 대한 정보를 표시
+ * @param param0 
+ * @returns 
+ */
 export function MainShortcuts({ historyCount, centerCount }: MainShortcutsProps) {
   const router = useRouter();
 
   return (
     <section className="grid grid-cols-2 gap-3">
+      {/* 대화 기록 카드 */}
       <Card
         surface="default"
         padding="md"
@@ -31,6 +38,7 @@ export function MainShortcuts({ historyCount, centerCount }: MainShortcutsProps)
           </span>
         </div>
       </Card>
+      {/* 상담 센터 카드 */}
       <Card
         surface="default"
         padding="md"
