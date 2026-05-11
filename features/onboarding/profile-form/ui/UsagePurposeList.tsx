@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import heartIcon from "@/shared/assets/lumi.png";
 import writeIcon from "@/shared/assets/writeIcon.png";
-import radiowaveIcon from "@/shared/assets/radiowaveIcon.png";
+import radiowaveIcon from "@/shared/assets/poco.png";
 import helloIcon from "@/shared/assets/helloIcon.png";
 import { cn } from "@/shared/lib/cn";
 import { Card } from "@/shared/ui/Card";

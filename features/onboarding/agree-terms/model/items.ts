@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 import heartIcon from "@/shared/assets/lumi.png";
 import writeIcon from "@/shared/assets/writeIcon.png";
-import radiowaveIcon from "@/shared/assets/radiowaveIcon.png";
+import radiowaveIcon from "@/shared/assets/poco.png";
 
 export interface TermsItem {
   id: string;
