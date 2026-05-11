@@ -51,7 +51,7 @@ Soul-Buddy-FE/
 
 ## 📜 Scripts
 
-- `dev`: 개발용 로컬 서버 실행 (`next dev`)
+- `dev`: 개발용 로컬 서버 실행 (`npm run dev`)
 - `build`: 프로덕션 배포용 빌드 생성 (`next build`)
 - `start`: 프로덕션 빌드 서버 실행 (`next start`)
 - `lint`: ESLint 규칙 점검 (`next lint`)
