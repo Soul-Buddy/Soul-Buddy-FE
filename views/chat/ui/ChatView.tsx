@@ -12,6 +12,11 @@ interface ChatViewProps {
   conversationId: string;
 }
 
+/**
+ * 채팅 뷰 컴포넌트
+ * @param param0 // 
+ * @returns 
+ */
 export function ChatView({ conversationId }: ChatViewProps) {
   const router = useRouter();
   const buddyId = useChatSetupStore((s) => s.buddyId);
@@ -51,7 +56,8 @@ export function ChatView({ conversationId }: ChatViewProps) {
       <div className="flex-1 overflow-y-auto px-5">
         <MessageThread messages={messages} buddy={buddy} isPending={isPending} />
       </div>
-      <div className="sticky bottom-0 bg-[var(--color-bg)] px-5 pt-2 pb-5">
+      {/* 채팅 입력 영역 */}
+      <div className="sticky bottom-0 border-t border-border-strong bg-[var(--color-bg)] px-5 pt-3 pb-5">
         <Composer onSend={send} disabled={isPending} />
       </div>
     </div>

@@ -24,6 +24,11 @@ const bgClass = {
   transparent: "bg-transparent",
 } as const;
 
+/**
+ * 아바타 컴포넌트
+ * @param param0 // - `src`: 아바타 이미지의 URL 또는 StaticImageData 객체
+ * @returns 
+ */
 export function Avatar({
   src,
   alt,
@@ -33,6 +38,7 @@ export function Avatar({
 }: AvatarProps) {
   const { class: sizeClass, px } = sizeMap[size];
   return (
+    // 아바타 이미지를 원형으로 표시하는 div 요소
     <div
       className={cn(
         "relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full",

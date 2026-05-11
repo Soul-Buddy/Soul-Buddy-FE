@@ -13,7 +13,7 @@ interface ChatHeaderProps {
 
 export function ChatHeader({ buddy, onEnd }: ChatHeaderProps) {
   return (
-    <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-bg)] px-3 py-2">
+    <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-bg)] pl-3 pr-6 py-4">
       <div className="flex items-center gap-2">
         <BackButton fallbackHref="/" />
         <Avatar src={buddy.image} alt={buddy.name} size="sm" background="primary" />
@@ -30,7 +30,7 @@ export function ChatHeader({ buddy, onEnd }: ChatHeaderProps) {
           </div>
         </div>
       </div>
-      <Button variant="ghost" size="sm" onClick={onEnd}>
+      <Button variant="ghost" size="sm" onClick={onEnd} className="bg-[var(--color-primary)] text-white hover:text-black">
         끝내기
       </Button>
     </div>
