@@ -53,12 +53,12 @@ export function Screen({
       {/* 화면 상단 헤더 */}
       {header}
       {/* 화면 본문 */}
-      <div className={cn("flex min-h-0 flex-1 flex-col overflow-y-auto", !noPadding && "px-5 pb-6")}>
+      <div className={cn("scrollbar-hide flex min-h-0 flex-1 flex-col overflow-y-auto", !noPadding && "px-5 pb-6")}>
         {children}
       </div>
       {/* 화면 하단 푸터 */}
       {footer && (
-        <div className={cn("sticky bottom-0 px-5 pt-3 pb-5", tone === "dark" ? "bg-[var(--color-dark)]" : "bg-[var(--color-bg)]")}>
+        <div className={cn("sticky bottom-0 px-5 pb-5", tone === "dark" ? "bg-[var(--color-dark)]" : "bg-[var(--color-bg)]")}>
           {footer}
         </div>
       )}
