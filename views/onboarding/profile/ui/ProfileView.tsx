@@ -17,18 +17,19 @@ import { saveProfileMock } from "@/shared/api/mock/profileStorage";
 
 export function ProfileView() {
   const router = useRouter();
-  const draft = useProfileFormStore((s) => s.draft);
-  const setName = useProfileFormStore((s) => s.setName);
-  const setAge = useProfileFormStore((s) => s.setAge);
-  const setGender = useProfileFormStore((s) => s.setGender);
-  const togglePurpose = useProfileFormStore((s) => s.togglePurpose);
-  const isValid = useProfileFormStore((s) => s.isValid)();
-  const reset = useProfileFormStore((s) => s.reset);
+  const draft = useProfileFormStore((s) => s.draft); // 프로필 폼의 임시 저장 상태
+  const setName = useProfileFormStore((s) => s.setName); // 이름 설정 함수
+  const setAge = useProfileFormStore((s) => s.setAge); // 나이 설정 함수
+  const setGender = useProfileFormStore((s) => s.setGender); // 성별 설정 함수
+  const togglePurpose = useProfileFormStore((s) => s.togglePurpose); // 사용 목적 토글 함수
+  const isValid = useProfileFormStore((s) => s.isValid)(); // 폼 유효성 검사 결과
+  const reset = useProfileFormStore((s) => s.reset); // 폼 초기화 함수
 
+  // 폼 제출 핸들러 
   const handleSubmit = () => {
-    if (!isValid || draft.gender === null) return;
-    saveProfileMock({
-      id: crypto.randomUUID(),
+    if (!isValid || draft.gender === null) return; // 폼이 유효하지 않거나 성별이 선택되지 않은 경우 제출 중단
+    saveProfileMock({ // 프로필 저장을 시뮬레이션하는 함수 호출
+      id: crypto.randomUUID(), 
       name: draft.name.trim(),
       age: Number(draft.age),
       gender: draft.gender,
@@ -42,7 +43,7 @@ export function ProfileView() {
     <Screen
       header={<TopBar leading={<BackButton fallbackHref="/onboarding/terms" />} />}
       footer={
-        <div className="flex gap-3">
+        <div className="flex gap-3 border-t border-border-strong -mx-5 px-5 py-3">
           <Button variant="secondary" size="lg" onClick={() => router.back()} className="min-w-24">
             이전
           </Button>
@@ -52,27 +53,29 @@ export function ProfileView() {
         </div>
       }
     >
-      <section className="mt-2 flex flex-col gap-2">
-        <h1 className="text-[22px] leading-[1.35] font-bold text-[var(--color-text)]">
-          만나서 반가워요!
-        </h1>
-        <div className="flex items-center gap-2 text-[13px] text-[var(--color-text-muted)]">
-          <Image src={helloIcon} alt="" width={24} height={24} className="object-contain" />
-          <span>몇 가지만 알려주시면 더 잘 들어드릴 수 있어요</span>
+      <section className="mt-2 flex items-center gap-3">
+        <Image src={helloIcon} alt="" width={48} height={48} className="shrink-0 object-contain" />
+        <div className="flex flex-col gap-1">
+          <h1 className="text-[22px] leading-[1.35] font-bold text-text">
+            만나서 반가워요!
+          </h1>
+          <span className="text-[13px] text-text-muted">
+            몇 가지만 알려주시면 더 잘 들어드릴 수 있어요
+          </span>
         </div>
       </section>
 
       <div className="mt-6 flex flex-col gap-5">
         <TextField
           label="이름"
-          placeholder="홍길동"
+          placeholder="이름을 입력해주세요!"
           value={draft.name}
           maxLength={20}
           onChange={(e) => setName(e.target.value)}
         />
         <TextField
           label="나이"
-          placeholder="25"
+          placeholder="나이를 입력해주세요!"
           value={draft.age}
           maxLength={3}
           inputMode="numeric"

@@ -39,9 +39,9 @@ const paddingClass: Record<CardPadding, string> = {
 
 /**
  * 카드 컴포넌트
- * - `surface` prop으로 카드의 배경과 텍스트 색상 조합을 선택할 수 있음
- * - `padding` prop으로 카드 내부 여백 크기를 조절할 수 있음
- * - `shadow` prop으로 카드에 그림자 효과를 줄 수 있음
+ * - `surface` prop으로 카드의 배경과 텍스트 색상 조합을 선택할 수 있음 (옵션 : default, muted, primary, danger, dark)
+ * - `padding` prop으로 카드 내부 여백 크기를 조절할 수 있음 (옵션 : none, sm, md, lg)
+ * - `shadow` prop으로 카드에 그림자 효과를 줄 수 있음 (기본값 : false)
  * @param param0 
  * @returns 
  * @example

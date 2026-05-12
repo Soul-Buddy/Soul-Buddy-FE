@@ -1,20 +1,18 @@
 "use client";
 
-import Image from "next/image";
-import { Check } from "lucide-react";
-import heartIcon from "@/shared/assets/lumi.png";
-import writeIcon from "@/shared/assets/writeIcon.png";
-import radiowaveIcon from "@/shared/assets/poco.png";
-import helloIcon from "@/shared/assets/helloIcon.png";
+import { BookOpen, Check, Heart, Moon, Wind, type LucideIcon } from "lucide-react";
 import { cn } from "@/shared/lib/cn";
 import { Card } from "@/shared/ui/Card";
 import { USAGE_PURPOSE_OPTIONS, type UsagePurpose } from "@/entities/user";
 
-const ICON_BY_ID: Record<UsagePurpose, typeof heartIcon> = {
-  "emotional-support": heartIcon,
-  "self-reflection": writeIcon,
-  "stress-relief": radiowaveIcon,
-  "sleep-help": helloIcon,
+const ICON_CONFIG: Record<
+  UsagePurpose,
+  { icon: LucideIcon; bgClass: string; colorClass: string }
+> = {
+  "emotional-support": { icon: Heart, bgClass: "bg-emotion-pink", colorClass: "text-rose-600" },
+  "self-reflection": { icon: BookOpen, bgClass: "bg-emotion-sage", colorClass: "text-emerald-700" },
+  "stress-relief": { icon: Wind, bgClass: "bg-emotion-blue", colorClass: "text-sky-700" },
+  "sleep-help": { icon: Moon, bgClass: "bg-emotion-cream", colorClass: "text-amber-700" },
 };
 
 interface UsagePurposeListProps {
@@ -27,27 +25,28 @@ export function UsagePurposeList({ selected, onToggle }: UsagePurposeListProps) 
     <div className="flex flex-col gap-3">
       {USAGE_PURPOSE_OPTIONS.map((opt) => {
         const isSelected = selected.includes(opt.id);
+        const { icon: Icon, bgClass, colorClass } = ICON_CONFIG[opt.id];
         return (
           <button key={opt.id} type="button" onClick={() => onToggle(opt.id)} className="block w-full text-left">
             <Card
               surface="default"
-              padding="md"
+              padding="lg"
               className={cn(
                 "flex items-center gap-3 transition-all",
-                isSelected ? "ring-2 ring-[var(--color-primary)]" : "",
+                isSelected && "bg-primary-soft/60 ring-2 ring-primary",
               )}
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary-soft)]/60">
-                <Image src={ICON_BY_ID[opt.id]} alt="" width={20} height={20} className="object-contain" />
+              <div className={cn("flex h-12 w-12 shrink-0 items-center justify-center rounded-sm", bgClass)}>
+                <Icon className={cn("h-6 w-6", colorClass)} strokeWidth={2.2} />
               </div>
               <div className="flex flex-1 flex-col gap-0.5">
-                <span className="text-[15px] font-semibold text-[var(--color-text)]">{opt.label}</span>
-                <span className="text-xs text-[var(--color-text-muted)]">{opt.description}</span>
+                <span className="text-[15px] font-semibold text-text">{opt.label}</span>
+                <span className="text-xs text-text-muted">{opt.description}</span>
               </div>
               <span
                 className={cn(
                   "flex h-6 w-6 items-center justify-center rounded-full",
-                  isSelected ? "bg-[var(--color-primary)] text-white" : "border border-[var(--color-border-strong)] text-transparent",
+                  isSelected ? "bg-primary text-white" : "border border-border-strong text-transparent",
                 )}
               >
                 <Check className="h-3.5 w-3.5" strokeWidth={3} />
