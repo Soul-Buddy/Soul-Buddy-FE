@@ -44,7 +44,7 @@ export function Screen({
     // 화면 전체를 감싸는 div로, 헤더와 푸터를 포함한 레이아웃을 구성
     <div
       className={cn(
-        "flex min-h-screen w-full flex-col",
+        "flex h-screen w-full flex-col", // 화면 전체를 차지하는 flex 컨테이너
         toneClass[tone],
         className,
       )}
@@ -53,7 +53,7 @@ export function Screen({
       {/* 화면 상단 헤더 */}
       {header}
       {/* 화면 본문 */}
-      <div className={cn("flex flex-1 flex-col overflow-y-auto", !noPadding && "px-5 pb-6")}>
+      <div className={cn("flex min-h-0 flex-1 flex-col overflow-y-auto", !noPadding && "px-5 pb-6")}>
         {children}
       </div>
       {/* 화면 하단 푸터 */}
