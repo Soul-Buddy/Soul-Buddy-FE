@@ -8,14 +8,26 @@ import type { CounselCenter } from "../model/types";
 
 interface CenterCardProps {
   center: CounselCenter;
-  onCall?: () => void;
 }
 
 function formatDistance(meters: number): string {
   return meters < 1000 ? `${meters}m` : `${(meters / 1000).toFixed(1)}km`;
 }
 
-export function CenterCard({ center, onCall }: CenterCardProps) {
+/**
+ * 
+ * @param param0 
+ * @returns 
+ */
+export function CenterCard({ center }: CenterCardProps) {
+  const hoursLabel = center.hours.trim() ? center.hours : "운영 시간 알 수 없음";
+  const hasPhone = Boolean(center.phone);
+
+  const handleCall = () => {
+    if (!hasPhone || typeof window === "undefined") return;
+    window.location.href = `tel:${center.phone}`;
+  };
+
   return (
     <Card surface="default" padding="md" shadow className="w-full">
       <div className="flex items-start gap-3">
@@ -33,10 +45,16 @@ export function CenterCard({ center, onCall }: CenterCardProps) {
                 {tag}
               </Tag>
             ))}
-            <Tag tone="primary">{center.hours}</Tag>
+            <Tag tone="primary">{hoursLabel}</Tag>
           </div>
         </div>
-        <IconButton variant="primary" size="md" aria-label={`${center.name}에 전화`} onClick={onCall}>
+        <IconButton
+          variant="primary"
+          size="md"
+          aria-label={`${center.name}에 전화`}
+          disabled={!hasPhone}
+          onClick={handleCall}
+        >
           <Phone />
         </IconButton>
       </div>

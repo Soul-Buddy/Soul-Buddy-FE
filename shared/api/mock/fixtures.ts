@@ -71,6 +71,8 @@ export const MOCK_CENTERS = [
     tags: ["청소년/청년"],
     hours: "평일 09 ~ 18",
     phone: "0331234567",
+    lat: 37.3267,
+    lng: 127.9476,
   },
   {
     id: "center-2",
@@ -80,6 +82,8 @@ export const MOCK_CENTERS = [
     tags: ["청소년/청년"],
     hours: "평일 09 ~ 18",
     phone: "0331234568",
+    lat: 37.3268,
+    lng: 127.9477,
   },
   {
     id: "center-3",
@@ -89,6 +93,8 @@ export const MOCK_CENTERS = [
     tags: ["청소년/청년"],
     hours: "평일 09 ~ 18",
     phone: "0331234569",
+    lat: 37.3269,
+    lng: 127.9478,
   },
 ];
 

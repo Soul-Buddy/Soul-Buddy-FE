@@ -14,20 +14,12 @@ export function CenterList({ centers }: CenterListProps) {
       </h2>
       {centers.length === 0 ? (
         <p className="text-sm text-[var(--color-text-muted)]">
-          근처 센터를 불러오지 못했어요.
+          근처에 상담소가 없습니다.
         </p>
       ) : (
         <div className="flex flex-col gap-2">
           {centers.map((center) => (
-            <CenterCard
-              key={center.id}
-              center={center}
-              onCall={() => {
-                if (typeof window !== "undefined") {
-                  window.location.href = `tel:${center.phone}`;
-                }
-              }}
-            />
+            <CenterCard key={center.id} center={center} />
           ))}
         </div>
       )}
