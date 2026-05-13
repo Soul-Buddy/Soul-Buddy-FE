@@ -6,6 +6,8 @@ export interface CounselCenter {
   tags: string[];
   hours: string;
   phone: string;
+  lat: number;
+  lng: number;
 }
 
 export interface EmergencyHotline {
