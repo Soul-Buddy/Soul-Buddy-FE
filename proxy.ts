@@ -1,11 +1,28 @@
 import { NextResponse } from "next/server";
+import { auth } from "@/auth";
 
-// TODO(auth): Google OAuth redirect_uri 정리 후 인증 가드 복구.
-// 원래 로직: 미인증 → /login, 프로필 미완료 → /onboarding/terms.
-// shared/api/mock/profileStorage.ts 의 saveProfileMock 이 profileCompleted=true 쿠키를 세팅함.
-export default function proxy() {
+const PROFILE_COOKIE = "profileCompleted";
+
+export default auth((req) => {
+  const { pathname } = req.nextUrl;
+  const isAuthed = !!req.auth;
+  const profileCompleted = req.cookies.get(PROFILE_COOKIE)?.value === "true";
+
+  if (pathname === "/login") {
+    if (isAuthed) return NextResponse.redirect(new URL("/", req.url));
+    return NextResponse.next();
+  }
+
+  if (!isAuthed) {
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
+
+  if (!profileCompleted && !pathname.startsWith("/onboarding")) {
+    return NextResponse.redirect(new URL("/onboarding/terms", req.url));
+  }
+
   return NextResponse.next();
-}
+});
 
 export const config = {
   matcher: ["/((?!api|_next|favicon|manifest|icons|.*\\..*).*)"],
