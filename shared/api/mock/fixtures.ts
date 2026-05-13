@@ -8,14 +8,14 @@ export const EMERGENCY_HOTLINES = [
 
 export const MOCK_RECENT_CONVERSATIONS = [
   {
-    id: "conv-1",
+    id: "hist-1",
     title: "자존감, 진로",
     buddyId: "poco" as const,
     dateLabel: "어제 · 포코와",
     dotColor: "peach" as const,
   },
   {
-    id: "conv-2",
+    id: "hist-2",
     title: "자존감, 진로",
     buddyId: "poco" as const,
     dateLabel: "어제 · 포코와",

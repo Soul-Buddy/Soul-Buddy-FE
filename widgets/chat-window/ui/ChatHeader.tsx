@@ -8,10 +8,11 @@ import type { Buddy } from "@/entities/buddy";
 
 interface ChatHeaderProps {
   buddy: Buddy;
-  onEnd: () => void;
+  onAction: () => void;
+  actionLabel?: string;
 }
 
-export function ChatHeader({ buddy, onEnd }: ChatHeaderProps) {
+export function ChatHeader({ buddy, onAction, actionLabel = "끝내기" }: ChatHeaderProps) {
   return (
     <div className="flex items-center justify-between gap-3 border-b border-[var(--color-border)] bg-[var(--color-bg)] pl-3 pr-6 py-4">
       <div className="flex items-center gap-2">
@@ -30,8 +31,8 @@ export function ChatHeader({ buddy, onEnd }: ChatHeaderProps) {
           </div>
         </div>
       </div>
-      <Button variant="ghost" size="sm" onClick={onEnd} className="bg-[var(--color-primary)] text-white hover:text-black">
-        끝내기
+      <Button variant="ghost" size="sm" onClick={onAction} className="bg-[var(--color-primary)] text-white hover:text-black">
+        {actionLabel}
       </Button>
     </div>
   );
