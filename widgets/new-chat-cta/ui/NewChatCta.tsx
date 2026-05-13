@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Card } from "@/shared/ui/Card";
 import { Button } from "@/shared/ui/Button";
 import { useChatSetupStore } from "@/features/chat/select-buddy";
+import { Plus } from "lucide-react";
 
 /**
  * 새로운 대화 시작을 유도하는 CTA( Call to Action ) 컴포넌트
@@ -28,9 +29,9 @@ export function NewChatCta() {
           reset(); // 대화 설정 초기화
           router.push("/chat/new/buddy");
         }} // 클릭 시 새로운 대화 생성 페이지로 이동
-        className="self-start text-[var(--color-background)] text-4xl w-14 h-14 "
+        className="self-start text-[var(--color-background)] w-14 h-14 -px-6"
       >
-        +
+        <Plus className="size-7" strokeWidth={2} />
       </Button>
     </Card>
   );
